@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         cancelButton = findViewById(R.id.cancelButton);
         startButton = findViewById(R.id.startButton);
         linearLayout = findViewById(R.id.masterll);
+        //Something
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
 
