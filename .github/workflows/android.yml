@@ -22,3 +22,15 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+    # Step 4: Yun your unit tests
+    - name: Run Unit Tests
+      run: ./gradlew testStagingDebugUnitTest
+
+    # Step 4: Assemble debug apk to send to firebase test lab
+    - name: Assemble Debug APK
+      run: ./gradlew assembleStagingDebug
+
+    # Step 4: Assemble debug test apk to send to firebase test lab
+    - name: Assemble Debug Test APK
+      run: ./gradlew assembleStagingDebugAndroidTest
+
