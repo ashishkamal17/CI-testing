@@ -17,7 +17,7 @@ jobs:
     - uses: act10ns/slack@v1
       with:
         status: starting
-        channel: '#ashishkamal'
+#         channel: '#ashishkamal'
       if: always()
     - uses: actions/checkout@v2
     - name: set up JDK 1.8
@@ -36,7 +36,7 @@ jobs:
       with:
           status: ${{ job.status }}
           steps: ${{ toJson(steps) }}
-          channel: '#ashishkamal'
+#           channel: '#ashishkamal'
       if: always()
   apk:
     name: Generate APK
