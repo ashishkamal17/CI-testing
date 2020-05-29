@@ -42,17 +42,12 @@ jobs:
         with:
           name: app
           path: app/build/outputs/apk/debug/app-debug.apk
-    slack: 
-        name: Sending message via slack
-        runs-on: ubuntu-18.04
         
-        steps:
-        - uses: 8398a7/action-slack@v3
-          with:
+      - uses: 8398a7/action-slack@v3
+        with:
             status: ${{ job.status }}
             fields: repo,message,commit,author,action,eventName,ref,workflow # selectable (default: repo,message)
-          env:
+        env:
             SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOCK_URL }} # required
-          if: always() # Pick up events even if the job fails or is canceled.
-
+        if: always() # Pick up events even if the job fails or is canceled.
 
