@@ -24,7 +24,7 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
     - name: Unit tests
-      run: bash ./gradlew test --stacktrace
+#       run: bash ./gradlew test --stacktrace
   apk:
     name: Generate APK
     runs-on: ubuntu-18.04
@@ -36,7 +36,7 @@ jobs:
         with:
           java-version: 1.8
       - name: Build debug APK
-        run: bash ./gradlew assembleDebug --stacktrace
+#         run: bash ./gradlew assembleDebug --stacktrace
       - name: Upload APK
         uses: actions/upload-artifact@v1
         with:
@@ -47,6 +47,7 @@ jobs:
         with:
             status: ${{ job.status }}
             fields: repo,message,commit,author,action,eventName,ref,workflow # selectable (default: repo,message)
+            slack-text: Hello! Event "${{ github.event_name }}" in "${{ github.repository }}" 🤓
         env:
             SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOCK_URL }} # required
         if: always() # Pick up events even if the job fails or is canceled.
