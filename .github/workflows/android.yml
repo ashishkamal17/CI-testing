@@ -20,7 +20,9 @@ jobs:
         
     - name: Add permission gradlew 
       run: chmod +x gradlew
+      
     - name: Build with Gradle
       run: ./gradlew build
-
+    - name: Unit tests
+      run: bash ./gradlew test --stacktrace
 
